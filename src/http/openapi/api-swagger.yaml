@@ -1,0 +1,55 @@
+openapi: 3.0.0
+info:
+  version: 1.0.0
+  title: Authentication API
+tags:
+  - name: Register
+    description: Operations about user
+    externalDocs:
+      description: Find out more
+      url: http://swagger.io
+paths:
+  /register:
+    post:
+      tags:
+        - "Register"
+      summary: Register a user
+      requestBody:
+        description: Create a new user
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Register'
+      responses:
+        '201':
+          description: User registered successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Register'
+        '409':
+          description: User already exists
+        '500':
+          description: Internal server error
+
+components:
+  schemas:    
+    Register:
+      required:
+        - name
+        - email
+        - password
+      type: object
+      properties:
+        name:
+          type: string
+          example: kelvin
+        email:
+          type: string
+          format: email
+          example: kelvin@example.com
+        password:
+          type: string
+          minLength: 6           
+          example: 123456

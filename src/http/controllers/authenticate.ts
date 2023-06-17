@@ -3,6 +3,8 @@ import { z } from "zod"
 import { InvalidCredentialsError } from "@/services/errors/invalid-credentials-error"
 import { makeAuthenticateService } from "@/services/factories/make-authenticate-service"
 
+
+
 export async function authenticate(request:FastifyRequest,reply:FastifyReply){
     const authenticateBodySchema = z.object({
         email:z.string().email(),
