@@ -8,6 +8,7 @@ tags:
     externalDocs:
       description: Find out more
       url: http://swagger.io
+  - name: Authenticate
 paths:
   /register:
     post:
@@ -32,6 +33,30 @@ paths:
           description: User already exists
         '500':
           description: Internal server error
+
+  /authenticate:
+    post:
+      tags:
+        - "Authenticate"
+      summary: Authenticate user
+      requestBody:
+        description: Authenticate user
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Register'
+      responses:
+        '200':
+          description: Successful authentication
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Register'       
+        '400':
+          description: Invalid credentials
+        '500':
+          description: Internal server error          
 
 components:
   schemas:    
