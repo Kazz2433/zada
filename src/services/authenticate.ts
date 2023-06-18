@@ -1,4 +1,4 @@
-import { IUsersRepository } from "@/repositories/Iusers-repository";
+import { IUsersRepository } from "../repositories/interfaces/Iusers-repository";
 import { InvalidCredentialsError } from "./errors/invalid-credentials-error";
 import { compare } from "bcryptjs";
 import { User } from "@prisma/client";
