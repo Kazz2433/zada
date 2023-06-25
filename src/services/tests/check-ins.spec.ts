@@ -39,8 +39,6 @@ describe('Check-in Use Case',  () => {
             userLatitude:-20.5432951,
             userLongitude:-54.6424034
         })
-        console.log(gymsRepository.items)
-        console.log(checkIn)
         expect(checkIn.id).toEqual(expect.any(String))
     })
 

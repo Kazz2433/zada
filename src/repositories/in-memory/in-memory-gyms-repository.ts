@@ -5,8 +5,7 @@ import { Decimal } from "@prisma/client/runtime/library";
 
 export class InMemoryGymsRepository implements IGymsRepository{
     public items:Gym[] = []
-    
-    
+
     async createGym(data: Prisma.GymCreateInput){
         const gym = {
             id: data.id ?? randomUUID(),
@@ -22,7 +21,7 @@ export class InMemoryGymsRepository implements IGymsRepository{
 
         return gym
     }
-    
+
     async findById(id: string){
         const gym = this.items.find((item) => item.id === id)
 
@@ -33,6 +32,10 @@ export class InMemoryGymsRepository implements IGymsRepository{
         return gym
     }
 
+    async findMany(query: string, page: number) {
+        return this.items.filter((item) => item.title.includes(query))
+                .slice((page - 1) * 20, page * 20)
+    }
     
 
 }
