@@ -10,7 +10,7 @@ interface FetchGymserviceResponse{
     gyms:Gym[]
 }
 
-export class FetchGymservice{
+export class FetchGymService{
 
     constructor(private gymsRepository: IGymsRepository){}
 

@@ -1,15 +1,15 @@
 import {describe,it,expect, beforeEach} from 'vitest'
 import { InMemoryGymsRepository } from '@/repositories/in-memory/in-memory-gyms-repository'
-import { FetchGymservice } from '../fetch-gyms'
+import { FetchGymService } from '../fetch-gyms'
 
 
 let gymsRepository:InMemoryGymsRepository
-let sut:FetchGymservice // finalmente usando todo o serviço com dados "reais"
+let sut:FetchGymService // finalmente usando todo o serviço com dados "reais"
 
 describe('Fetch Gyms Use Case',  () => {
     beforeEach(()=>{
         gymsRepository = new InMemoryGymsRepository()
-        sut = new FetchGymservice(gymsRepository)
+        sut = new FetchGymService(gymsRepository)
 
     })
 
